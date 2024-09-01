@@ -1,0 +1,45 @@
+[2024-08-31T01:36:05.834+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-31T01:36:05.849+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T01:36:02.877423+00:00 [queued]>
+[2024-08-31T01:36:05.858+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T01:36:02.877423+00:00 [queued]>
+[2024-08-31T01:36:05.859+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-08-31T01:36:05.873+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_and_transform_files> on 2024-08-31 01:36:02.877423+00:00
+[2024-08-31T01:36:05.878+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=74) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-31T01:36:05.881+0000] {standard_task_runner.py:63} INFO - Started process 79 to run task
+[2024-08-31T01:36:05.881+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_single_task_process_files', 'process_and_transform_files', 'manual__2024-08-31T01:36:02.877423+00:00', '--job-id', '440', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline.py', '--cfg-path', '/tmp/tmpfr0ouyg0']
+[2024-08-31T01:36:05.884+0000] {standard_task_runner.py:91} INFO - Job 440: Subtask process_and_transform_files
+[2024-08-31T01:36:05.932+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T01:36:02.877423+00:00 [running]> on host 0fffd72ba499
+[2024-08-31T01:36:06.014+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_single_task_process_files' AIRFLOW_CTX_TASK_ID='process_and_transform_files' AIRFLOW_CTX_EXECUTION_DATE='2024-08-31T01:36:02.877423+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-31T01:36:02.877423+00:00'
+[2024-08-31T01:36:06.015+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-31T01:36:06.050+0000] {base.py:84} INFO - Using connection ID 'zillow-aws' for task execution.
+[2024-08-31T01:36:06.051+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='zillow-aws', conn_type='aws') credentials retrieved from login and password.
+[2024-08-31T01:36:09.134+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_invt_fs_uc_sfrcondo_week.csv to processed-data/Metro_invt_fs_uc_sfrcondo_week.parquet in zillow-staging
+[2024-08-31T01:36:09.430+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_market_temp_index_uc_sfrcondo_month.csv to processed-data/Metro_market_temp_index_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:09.673+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_days_to_close_uc_sfrcondo_month.csv to processed-data/Metro_mean_days_to_close_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:09.925+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv to processed-data/Metro_mean_doz_pending_uc_sfrcondo_sm_month.parquet in zillow-staging
+[2024-08-31T01:36:10.238+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_listings_price_cut_amt_uc_sfrcondo_sm_month.csv to processed-data/Metro_mean_listings_price_cut_amt_uc_sfrcondo_sm_month.parquet in zillow-staging
+[2024-08-31T01:36:10.574+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_sale_to_list_uc_sfrcondo_month.csv to processed-data/Metro_mean_sale_to_list_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:10.871+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_med_doz_pending_uc_sfrcondo_sm_month.csv to processed-data/Metro_med_doz_pending_uc_sfrcondo_sm_month.parquet in zillow-staging
+[2024-08-31T01:36:11.185+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv to processed-data/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.parquet in zillow-staging
+[2024-08-31T01:36:11.438+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_days_to_close_uc_sfrcondo_month.csv to processed-data/Metro_median_days_to_close_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:11.977+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_median_sale_price_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:12.361+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_sale_to_list_uc_sfrcondo_month.csv to processed-data/Metro_median_sale_to_list_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:12.727+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mlp_uc_sfrcondo_month.csv to processed-data/Metro_mlp_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:12.999+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_mean_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_new_con_mean_sale_price_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:13.298+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_median_sale_price_per_sqft_uc_sfrcondo_month.csv to processed-data/Metro_new_con_median_sale_price_per_sqft_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:13.508+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_median_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_new_con_median_sale_price_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:13.755+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_sales_count_raw_uc_sfrcondo_month.csv to processed-data/Metro_new_con_sales_count_raw_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:14.188+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_listings_uc_sfrcondo_month.csv to processed-data/Metro_new_listings_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:14.514+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_pending_uc_sfrcondo_month.csv to processed-data/Metro_new_pending_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:14.833+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_pct_sold_above_list_uc_sfrcondo_month.csv to processed-data/Metro_pct_sold_above_list_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:15.137+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_pct_sold_below_list_uc_sfrcondo_month.csv to processed-data/Metro_pct_sold_below_list_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:15.618+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv to processed-data/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.parquet in zillow-staging
+[2024-08-31T01:36:15.910+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_sales_count_now_uc_sfrcondo_month.csv to processed-data/Metro_sales_count_now_uc_sfrcondo_month.parquet in zillow-staging
+[2024-08-31T01:36:15.979+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-08-31T01:36:15.980+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-08-31T01:36:15.982+0000] {process_utils.py:132} INFO - Sending 15 to group 79. PIDs of all processes in the group: [79]
+[2024-08-31T01:36:15.982+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 79
+[2024-08-31T01:36:15.983+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-08-31T01:36:15.983+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-31T01:36:16.009+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=79, status='terminated', exitcode=0, started='01:36:05') (79) terminated with exit code 0

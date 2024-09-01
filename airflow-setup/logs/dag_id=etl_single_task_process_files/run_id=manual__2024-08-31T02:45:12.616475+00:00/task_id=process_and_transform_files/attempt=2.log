@@ -1,0 +1,309 @@
+[2024-08-31T02:50:28.392+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-31T02:50:28.410+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T02:45:12.616475+00:00 [queued]>
+[2024-08-31T02:50:28.417+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T02:45:12.616475+00:00 [queued]>
+[2024-08-31T02:50:28.418+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-08-31T02:50:28.432+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_and_transform_files> on 2024-08-31 02:45:12.616475+00:00
+[2024-08-31T02:50:28.442+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1158) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-31T02:50:28.444+0000] {standard_task_runner.py:63} INFO - Started process 1160 to run task
+[2024-08-31T02:50:28.444+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_single_task_process_files', 'process_and_transform_files', 'manual__2024-08-31T02:45:12.616475+00:00', '--job-id', '455', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline.py', '--cfg-path', '/tmp/tmpib3ds4wq']
+[2024-08-31T02:50:28.446+0000] {standard_task_runner.py:91} INFO - Job 455: Subtask process_and_transform_files
+[2024-08-31T02:50:28.494+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_single_task_process_files.process_and_transform_files manual__2024-08-31T02:45:12.616475+00:00 [running]> on host 0fffd72ba499
+[2024-08-31T02:50:28.583+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_single_task_process_files' AIRFLOW_CTX_TASK_ID='process_and_transform_files' AIRFLOW_CTX_EXECUTION_DATE='2024-08-31T02:45:12.616475+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-31T02:45:12.616475+00:00'
+[2024-08-31T02:50:28.584+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-31T02:50:28.603+0000] {base.py:84} INFO - Using connection ID 'zillow-aws' for task execution.
+[2024-08-31T02:50:28.604+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='zillow-aws', conn_type='aws') credentials retrieved from login and password.
+[2024-08-31T02:50:29.881+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_invt_fs_uc_sfrcondo_week.csv:
+[2024-08-31T02:50:29.943+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-07-20 2024-07-27  2024-08-03
+0    102001         0    United States  ...   901889.0   903051.0    900091.0
+1    394913         1     New York, NY  ...    34515.0    34279.0     33966.0
+2    753899         2  Los Angeles, CA  ...    15349.0    15422.0     15335.0
+3    394463         3      Chicago, IL  ...    17260.0    17411.0     17270.0
+4    394514         4       Dallas, TX  ...    25004.0    25117.0     25019.0
+
+[5 rows x 348 columns]
+[2024-08-31T02:50:31.079+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_invt_fs_uc_sfrcondo_week.csv to processed-data/Metro_invt_fs_uc_sfrcondo_week_transformed.parquet in zillow-staging
+[2024-08-31T02:50:31.277+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_market_temp_index_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:31.331+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...       58.0       56.0        54.0
+1    394913         1     New York, NY  ...       79.0       76.0        74.0
+2    753899         2  Los Angeles, CA  ...       74.0       69.0        67.0
+3    394463         3      Chicago, IL  ...       71.0       67.0        64.0
+4    394514         4       Dallas, TX  ...       59.0       55.0        52.0
+
+[5 rows x 84 columns]
+[2024-08-31T02:50:31.614+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_market_temp_index_uc_sfrcondo_month.csv to processed-data/Metro_market_temp_index_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:31.703+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_days_to_close_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:31.763+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...       33.0       34.0        34.0
+1    394913         1     New York, NY  ...       51.0       53.0        56.0
+2    753899         2  Los Angeles, CA  ...       29.0       29.0        29.0
+3    394463         3      Chicago, IL  ...       37.0       38.0        39.0
+4    394514         4       Dallas, TX  ...       29.0       29.0        29.0
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:31.890+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_days_to_close_uc_sfrcondo_month.csv to processed-data/Metro_mean_days_to_close_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:32.036+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv:
+[2024-08-31T02:50:32.096+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...       39.0       37.0        38.0
+1    394913         1     New York, NY  ...       51.0       49.0        49.0
+2    753899         2  Los Angeles, CA  ...       30.0       29.0        30.0
+3    394463         3      Chicago, IL  ...       26.0       24.0        24.0
+4    394514         4       Dallas, TX  ...       39.0       38.0        40.0
+
+[5 rows x 82 columns]
+[2024-08-31T02:50:32.230+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv to processed-data/Metro_mean_doz_pending_uc_sfrcondo_sm_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:32.361+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_listings_price_cut_amt_uc_sfrcondo_sm_month.csv:
+[2024-08-31T02:50:32.410+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank  ...    2024-06-30    2024-07-31
+0    102001         0  ...  20624.366425  20312.509363
+1    394913         1  ...  57486.876014  55388.694257
+2    753899         2  ...  71750.596595  67282.768987
+3    394463         3  ...  18543.786694  17906.156091
+4    394514         4  ...  15721.274603  15516.527502
+
+[5 rows x 82 columns]
+[2024-08-31T02:50:32.693+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_listings_price_cut_amt_uc_sfrcondo_sm_month.csv to processed-data/Metro_mean_listings_price_cut_amt_uc_sfrcondo_sm_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:32.830+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_sale_to_list_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:32.876+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   0.991597   0.994370    0.995080
+1    394913         1     New York, NY  ...   1.019517   1.024076    1.030287
+2    753899         2  Los Angeles, CA  ...   1.017986   1.018758    1.016249
+3    394463         3      Chicago, IL  ...   1.003429   1.006532    1.007598
+4    394514         4       Dallas, TX  ...   0.987718   0.987737    0.984634
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:33.175+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_sale_to_list_uc_sfrcondo_month.csv to processed-data/Metro_mean_sale_to_list_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:33.313+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_med_doz_pending_uc_sfrcondo_sm_month.csv:
+[2024-08-31T02:50:33.373+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...       13.0       14.0        15.0
+1    394913         1     New York, NY  ...       21.0       22.0        24.0
+2    753899         2  Los Angeles, CA  ...       13.0       14.0        15.0
+3    394463         3      Chicago, IL  ...        7.0        7.0         8.0
+4    394514         4       Dallas, TX  ...       15.0       17.0        20.0
+
+[5 rows x 82 columns]
+[2024-08-31T02:50:33.510+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_med_doz_pending_uc_sfrcondo_sm_month.csv to processed-data/Metro_med_doz_pending_uc_sfrcondo_sm_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:33.625+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv:
+[2024-08-31T02:50:33.677+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31    2024-06-30    2024-07-31
+0    102001         0    United States  ...    10000.0  10000.000000  10000.000000
+1    394913         1     New York, NY  ...    27000.0  27333.333333  27333.333333
+2    753899         2  Los Angeles, CA  ...    38004.0  40004.000000  39667.000000
+3    394463         3      Chicago, IL  ...    10000.0  10000.000000  10000.000000
+4    394514         4       Dallas, TX  ...    10000.0  10000.000000  10000.000000
+
+[5 rows x 82 columns]
+[2024-08-31T02:50:33.812+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv to processed-data/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:33.988+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_median_days_to_close_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:34.047+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...       31.0       30.0        31.0
+1    394913         1     New York, NY  ...       48.0       50.0        52.0
+2    753899         2  Los Angeles, CA  ...       28.0       28.0        28.0
+3    394463         3      Chicago, IL  ...       35.0       35.0        35.0
+4    394514         4       Dallas, TX  ...       28.0       28.0        28.0
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:34.173+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_days_to_close_uc_sfrcondo_month.csv to processed-data/Metro_median_days_to_close_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:34.358+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_median_sale_price_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:34.421+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   352000.0   362500.0    370000.0
+1    394913         1     New York, NY  ...   580000.0   610000.0    636000.0
+2    753899         2  Los Angeles, CA  ...   950000.0   970000.0    962000.0
+3    394463         3      Chicago, IL  ...   315000.0   325000.0    342000.0
+4    394514         4       Dallas, TX  ...   399500.0   405000.0    400000.0
+
+[5 rows x 202 columns]
+[2024-08-31T02:50:34.779+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_median_sale_price_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:34.906+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_median_sale_to_list_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:34.957+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   1.000000   1.000000    1.000000
+1    394913         1     New York, NY  ...   1.000263   1.005747    1.014305
+2    753899         2  Los Angeles, CA  ...   1.004016   1.006306    1.002923
+3    394463         3      Chicago, IL  ...   1.000000   1.000004    1.000233
+4    394514         4       Dallas, TX  ...   0.996561   0.998557    0.993174
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:35.211+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_median_sale_to_list_uc_sfrcondo_month.csv to processed-data/Metro_median_sale_to_list_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:35.328+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mlp_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:35.386+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...   407900.0   409900.0    400000.0
+1    394913         1     New York, NY  ...   719999.0   719000.0    709000.0
+2    753899         2  Los Angeles, CA  ...  1089000.0  1099000.0   1098000.0
+3    394463         3      Chicago, IL  ...   359900.0   359900.0    355000.0
+4    394514         4       Dallas, TX  ...   439900.0   440000.0    435000.0
+
+[5 rows x 84 columns]
+[2024-08-31T02:50:35.650+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mlp_uc_sfrcondo_month.csv to processed-data/Metro_mlp_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:35.750+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_con_mean_sale_price_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:35.804+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank  ...    2024-05-31    2024-06-30
+0    102001         0  ...  5.629099e+05  5.487021e+05
+1    394913         1  ...  1.426271e+06  1.394696e+06
+2    753899         2  ...  1.951269e+06  1.875664e+06
+3    394463         3  ...  6.698438e+05  6.468555e+05
+4    394514         4  ...  5.099301e+05  4.909982e+05
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:35.930+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_mean_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_new_con_mean_sale_price_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:36.081+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_con_median_sale_price_per_sqft_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:36.132+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ...  2024-04-30  2024-05-31  2024-06-30
+0    102001         0    United States  ...  208.785326  209.704616  208.662982
+1    394913         1     New York, NY  ...  458.547322  467.741935  476.774194
+2    753899         2  Los Angeles, CA  ...  591.757112  582.100758  621.155781
+3    394463         3      Chicago, IL  ...  219.171246  218.043610  222.915133
+4    394514         4       Dallas, TX  ...  196.427313  194.472222  193.800522
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:36.341+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_median_sale_price_per_sqft_uc_sfrcondo_month.csv to processed-data/Metro_new_con_median_sale_price_per_sqft_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:36.436+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_con_median_sale_price_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:36.495+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   419554.0   418000.0    413990.0
+1    394913         1     New York, NY  ...   900000.0  1057027.5   1050000.0
+2    753899         2  Los Angeles, CA  ...  1089995.0  1132205.0   1235000.0
+3    394463         3      Chicago, IL  ...   508505.0   498990.0    519075.0
+4    394514         4       Dallas, TX  ...   423382.5   415000.0    409410.0
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:36.604+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_median_sale_price_uc_sfrcondo_month.csv to processed-data/Metro_new_con_median_sale_price_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:36.699+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_con_sales_count_raw_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:36.756+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...    33479.0    35605.0     32286.0
+1    394913         1     New York, NY  ...      291.0      397.0       301.0
+2    753899         2  Los Angeles, CA  ...      240.0      240.0       228.0
+3    394463         3      Chicago, IL  ...      446.0      519.0       416.0
+4    394514         4       Dallas, TX  ...     1502.0     1462.0      1405.0
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:36.884+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_con_sales_count_raw_uc_sfrcondo_month.csv to processed-data/Metro_new_con_sales_count_raw_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:37.005+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_listings_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:37.064+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...   414294.0   380223.0    356190.0
+1    394913         1     New York, NY  ...    15427.0    13472.0     12427.0
+2    753899         2  Los Angeles, CA  ...     8294.0     7838.0      7762.0
+3    394463         3      Chicago, IL  ...    11589.0    10675.0     10316.0
+4    394514         4       Dallas, TX  ...    10662.0    10116.0      9366.0
+
+[5 rows x 84 columns]
+[2024-08-31T02:50:37.279+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_listings_uc_sfrcondo_month.csv to processed-data/Metro_new_listings_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:37.390+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_new_pending_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:37.450+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...   281027.0   267255.0    263999.0
+1    394913         1     New York, NY  ...    11102.0    10158.0     10235.0
+2    753899         2  Los Angeles, CA  ...     6252.0     5760.0      5960.0
+3    394463         3      Chicago, IL  ...     8858.0     8489.0      8179.0
+4    394514         4       Dallas, TX  ...     7269.0     6627.0      6715.0
+
+[5 rows x 84 columns]
+[2024-08-31T02:50:37.669+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_new_pending_uc_sfrcondo_month.csv to processed-data/Metro_new_pending_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:37.836+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_pct_sold_above_list_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:37.888+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   0.332909   0.351918    0.354373
+1    394913         1     New York, NY  ...   0.511760   0.537742    0.572396
+2    753899         2  Los Angeles, CA  ...   0.555596   0.566405    0.552199
+3    394463         3      Chicago, IL  ...   0.481969   0.502096    0.510735
+4    394514         4       Dallas, TX  ...   0.270577   0.270399    0.234053
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:38.094+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_pct_sold_above_list_uc_sfrcondo_month.csv to processed-data/Metro_pct_sold_above_list_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:38.201+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_pct_sold_below_list_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:38.252+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...   0.475241   0.458321    0.454218
+1    394913         1     New York, NY  ...   0.376172   0.357947    0.323564
+2    753899         2  Los Angeles, CA  ...   0.325530   0.317002    0.334034
+3    394463         3      Chicago, IL  ...   0.379743   0.367384    0.353731
+4    394514         4       Dallas, TX  ...   0.512299   0.503425    0.537631
+
+[5 rows x 83 columns]
+[2024-08-31T02:50:38.524+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_pct_sold_below_list_uc_sfrcondo_month.csv to processed-data/Metro_pct_sold_below_list_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:38.689+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv:
+[2024-08-31T02:50:38.738+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...   0.222509   0.235403    0.248268
+1    394913         1     New York, NY  ...   0.124001   0.134447    0.140967
+2    753899         2  Los Angeles, CA  ...   0.158725   0.171896    0.190793
+3    394463         3      Chicago, IL  ...   0.187966   0.206579    0.228910
+4    394514         4       Dallas, TX  ...   0.287787   0.319733    0.348072
+
+[5 rows x 82 columns]
+[2024-08-31T02:50:39.235+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv to processed-data/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:39.330+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_sales_count_now_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:39.395+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...   352250.0   325733.0    353450.0
+1    394913         1     New York, NY  ...    12501.0    12544.0     14460.0
+2    753899         2  Los Angeles, CA  ...     7131.0     6392.0      7332.0
+3    394463         3      Chicago, IL  ...    10276.0    10067.0     10829.0
+4    394514         4       Dallas, TX  ...     7577.0     6539.0      7033.0
+
+[5 rows x 203 columns]
+[2024-08-31T02:50:39.542+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_sales_count_now_uc_sfrcondo_month.csv to processed-data/Metro_sales_count_now_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:39.707+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_total_transaction_value_uc_sfrcondo_month.csv:
+[2024-08-31T02:50:39.770+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank  ...    2024-05-31    2024-06-30
+0    102001         0  ...  1.755848e+11  1.643497e+11
+1    394913         1  ...  9.974481e+09  1.022011e+10
+2    753899         2  ...  9.123812e+09  8.042667e+09
+3    394463         3  ...  4.164648e+09  4.386403e+09
+4    394514         4  ...  3.953413e+09  3.312246e+09
+
+[5 rows x 202 columns]
+[2024-08-31T02:50:40.346+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_total_transaction_value_uc_sfrcondo_month.csv to processed-data/Metro_total_transaction_value_uc_sfrcondo_month_transformed.parquet in zillow-staging
+[2024-08-31T02:50:40.420+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv:
+[2024-08-31T02:50:40.429+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-08-31 2024-10-31 2025-07-31
+0    102001         0    United States  ...        0.0        0.1        0.9
+1    394913         1     New York, NY  ...        0.3        0.0       -0.8
+2    753899         2  Los Angeles, CA  ...        0.5        1.1        1.4
+3    394463         3      Chicago, IL  ...        0.1       -0.1       -0.9
+4    394514         4       Dallas, TX  ...       -0.3       -0.9       -0.3
+
+[5 rows x 9 columns]
+[2024-08-31T02:50:40.442+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-31T02:50:40.443+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/src/utils.py", line 74, in process_and_transform_files
+    df_long.to_parquet(parquet_buffer, index=False)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 2970, in to_parquet
+    return to_parquet(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 483, in to_parquet
+    impl.write(
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 189, in write
+    table = self.api.Table.from_pandas(df, **from_pandas_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pyarrow/table.pxi", line 4525, in pyarrow.lib.Table.from_pandas
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 624, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 598, in convert_column
+    raise e
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 592, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pyarrow/array.pxi", line 345, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 85, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+pyarrow.lib.ArrowTypeError: ("Expected bytes, got a 'float' object", 'Conversion failed for column zhvf_growth with type object')
+[2024-08-31T02:50:40.456+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=etl_single_task_process_files, task_id=process_and_transform_files, run_id=manual__2024-08-31T02:45:12.616475+00:00, execution_date=20240831T024512, start_date=20240831T025028, end_date=20240831T025040
+[2024-08-31T02:50:40.478+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 455 for task process_and_transform_files (("Expected bytes, got a 'float' object", 'Conversion failed for column zhvf_growth with type object'); 1160)
+[2024-08-31T02:50:40.506+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-08-31T02:50:40.527+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-31T02:50:40.530+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

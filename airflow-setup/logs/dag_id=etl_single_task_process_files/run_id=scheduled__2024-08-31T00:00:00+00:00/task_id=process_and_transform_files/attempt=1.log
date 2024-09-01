@@ -1,0 +1,137 @@
+[2024-09-01T00:01:31.640+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-01T00:01:31.687+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files scheduled__2024-08-31T00:00:00+00:00 [queued]>
+[2024-09-01T00:01:31.717+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_single_task_process_files.process_and_transform_files scheduled__2024-08-31T00:00:00+00:00 [queued]>
+[2024-09-01T00:01:31.719+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-01T00:01:31.769+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_and_transform_files> on 2024-08-31 00:00:00+00:00
+[2024-09-01T00:01:31.788+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=3014) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-01T00:01:31.789+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_single_task_process_files', 'process_and_transform_files', 'scheduled__2024-08-31T00:00:00+00:00', '--job-id', '458', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline.py', '--cfg-path', '/tmp/tmpl6sn9p1a']
+[2024-09-01T00:01:31.793+0000] {standard_task_runner.py:63} INFO - Started process 3016 to run task
+[2024-09-01T00:01:31.795+0000] {standard_task_runner.py:91} INFO - Job 458: Subtask process_and_transform_files
+[2024-09-01T00:01:31.960+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_single_task_process_files.process_and_transform_files scheduled__2024-08-31T00:00:00+00:00 [running]> on host 0fffd72ba499
+[2024-09-01T00:01:32.387+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_single_task_process_files' AIRFLOW_CTX_TASK_ID='process_and_transform_files' AIRFLOW_CTX_EXECUTION_DATE='2024-08-31T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-31T00:00:00+00:00'
+[2024-09-01T00:01:32.391+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-01T00:01:32.504+0000] {base.py:84} INFO - Using connection ID 'zillow-aws' for task execution.
+[2024-09-01T00:01:32.509+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='zillow-aws', conn_type='aws') credentials retrieved from login and password.
+[2024-09-01T00:01:35.616+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_invt_fs_uc_sfrcondo_week.csv:
+[2024-09-01T00:01:35.728+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-07-20 2024-07-27  2024-08-03
+0    102001         0    United States  ...   901889.0   903051.0    900091.0
+1    394913         1     New York, NY  ...    34515.0    34279.0     33966.0
+2    753899         2  Los Angeles, CA  ...    15349.0    15422.0     15335.0
+3    394463         3      Chicago, IL  ...    17260.0    17411.0     17270.0
+4    394514         4       Dallas, TX  ...    25004.0    25117.0     25019.0
+
+[5 rows x 348 columns]
+[2024-09-01T00:01:35.837+0000] {logging_mixin.py:188} INFO - Transformed data from Metro_invt_fs_uc_sfrcondo_week.csv:
+[2024-09-01T00:01:35.848+0000] {logging_mixin.py:188} INFO -    regionid  sizerank       regionname  ... statename       date for_sale_inventory
+0    394913         1     New York, NY  ...        NY 2018-01-13            53920.0
+1    753899         2  Los Angeles, CA  ...        CA 2018-01-13            13458.0
+2    394463         3      Chicago, IL  ...        IL 2018-01-13            27073.0
+3    394514         4       Dallas, TX  ...        TX 2018-01-13            17171.0
+4    394692         5      Houston, TX  ...        TX 2018-01-13            19256.0
+
+[5 rows x 7 columns]
+[2024-09-01T00:01:37.262+0000] {logging_mixin.py:188} INFO - CSV content for Metro_invt_fs_uc_sfrcondo_week.csv (first 500 characters):
+[2024-09-01T00:01:37.263+0000] {logging_mixin.py:188} INFO - regionid,sizerank,regionname,regiontype,statename,date,for_sale_inventory
+394913,1,"New York, NY",msa,NY,2018-01-13,53920.0
+753899,2,"Los Angeles, CA",msa,CA,2018-01-13,13458.0
+394463,3,"Chicago, IL",msa,IL,2018-01-13,27073.0
+394514,4,"Dallas, TX",msa,TX,2018-01-13,17171.0
+394692,5,"Houston, TX",msa,TX,2018-01-13,19256.0
+395209,6,"Washington, DC",msa,VA,2018-01-13,13649.0
+394974,7,"Philadelphia, PA",msa,PA,2018-01-13,18557.0
+394856,8,"Miami, FL",msa,FL,2018-01-13,45593.0
+394347,9,"Atlanta, GA",m
+[2024-09-01T00:01:50.470+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_invt_fs_uc_sfrcondo_week.csv to processed-data/Metro_invt_fs_uc_sfrcondo_week_transformed.csv in zillow-staging
+[2024-09-01T00:01:51.013+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_market_temp_index_uc_sfrcondo_month.csv:
+[2024-09-01T00:01:51.151+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...       58.0       56.0        54.0
+1    394913         1     New York, NY  ...       79.0       76.0        74.0
+2    753899         2  Los Angeles, CA  ...       74.0       69.0        67.0
+3    394463         3      Chicago, IL  ...       71.0       67.0        64.0
+4    394514         4       Dallas, TX  ...       59.0       55.0        52.0
+
+[5 rows x 84 columns]
+[2024-09-01T00:01:51.201+0000] {logging_mixin.py:188} INFO - Transformed data from Metro_market_temp_index_uc_sfrcondo_month.csv:
+[2024-09-01T00:01:51.213+0000] {logging_mixin.py:188} INFO -    regionid  sizerank       regionname  ... statename       date market_heat_index
+0    394913         1     New York, NY  ...        NY 2018-01-31              50.0
+1    753899         2  Los Angeles, CA  ...        CA 2018-01-31              69.0
+2    394463         3      Chicago, IL  ...        IL 2018-01-31              48.0
+3    394514         4       Dallas, TX  ...        TX 2018-01-31              56.0
+4    394692         5      Houston, TX  ...        TX 2018-01-31              48.0
+
+[5 rows x 7 columns]
+[2024-09-01T00:01:51.565+0000] {logging_mixin.py:188} INFO - CSV content for Metro_market_temp_index_uc_sfrcondo_month.csv (first 500 characters):
+[2024-09-01T00:01:51.566+0000] {logging_mixin.py:188} INFO - regionid,sizerank,regionname,regiontype,statename,date,market_heat_index
+394913,1,"New York, NY",msa,NY,2018-01-31,50.0
+753899,2,"Los Angeles, CA",msa,CA,2018-01-31,69.0
+394463,3,"Chicago, IL",msa,IL,2018-01-31,48.0
+394514,4,"Dallas, TX",msa,TX,2018-01-31,56.0
+394692,5,"Houston, TX",msa,TX,2018-01-31,48.0
+395209,6,"Washington, DC",msa,VA,2018-01-31,56.0
+394974,7,"Philadelphia, PA",msa,PA,2018-01-31,39.0
+394856,8,"Miami, FL",msa,FL,2018-01-31,38.0
+394347,9,"Atlanta, GA",msa,GA,2018-01-31,53.0
+394
+[2024-09-01T00:01:54.043+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_market_temp_index_uc_sfrcondo_month.csv to processed-data/Metro_market_temp_index_uc_sfrcondo_month_transformed.csv in zillow-staging
+[2024-09-01T00:01:54.206+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_days_to_close_uc_sfrcondo_month.csv:
+[2024-09-01T00:01:54.297+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-04-30 2024-05-31  2024-06-30
+0    102001         0    United States  ...       33.0       34.0        34.0
+1    394913         1     New York, NY  ...       51.0       53.0        56.0
+2    753899         2  Los Angeles, CA  ...       29.0       29.0        29.0
+3    394463         3      Chicago, IL  ...       37.0       38.0        39.0
+4    394514         4       Dallas, TX  ...       29.0       29.0        29.0
+
+[5 rows x 83 columns]
+[2024-09-01T00:01:54.320+0000] {logging_mixin.py:188} INFO - Transformed data from Metro_mean_days_to_close_uc_sfrcondo_month.csv:
+[2024-09-01T00:01:54.331+0000] {logging_mixin.py:188} INFO -    regionid  sizerank       regionname  ... statename       date mean_days_to_close
+0    394913         1     New York, NY  ...        NY 2018-01-31               62.0
+1    753899         2  Los Angeles, CA  ...        CA 2018-01-31               38.0
+2    394463         3      Chicago, IL  ...        IL 2018-01-31               46.0
+3    394514         4       Dallas, TX  ...        TX 2018-01-31               22.0
+4    394692         5      Houston, TX  ...        TX 2018-01-31               33.0
+
+[5 rows x 7 columns]
+[2024-09-01T00:01:54.511+0000] {logging_mixin.py:188} INFO - CSV content for Metro_mean_days_to_close_uc_sfrcondo_month.csv (first 500 characters):
+[2024-09-01T00:01:54.512+0000] {logging_mixin.py:188} INFO - regionid,sizerank,regionname,regiontype,statename,date,mean_days_to_close
+394913,1,"New York, NY",msa,NY,2018-01-31,62.0
+753899,2,"Los Angeles, CA",msa,CA,2018-01-31,38.0
+394463,3,"Chicago, IL",msa,IL,2018-01-31,46.0
+394514,4,"Dallas, TX",msa,TX,2018-01-31,22.0
+394692,5,"Houston, TX",msa,TX,2018-01-31,33.0
+395209,6,"Washington, DC",msa,VA,2018-01-31,38.0
+394974,7,"Philadelphia, PA",msa,PA,2018-01-31,41.0
+394856,8,"Miami, FL",msa,FL,2018-01-31,40.0
+394347,9,"Atlanta, GA",msa,GA,2018-01-31,35.0
+39
+[2024-09-01T00:01:56.280+0000] {logging_mixin.py:188} INFO - Processed and saved Metro_mean_days_to_close_uc_sfrcondo_month.csv to processed-data/Metro_mean_days_to_close_uc_sfrcondo_month_transformed.csv in zillow-staging
+[2024-09-01T00:01:56.528+0000] {logging_mixin.py:188} INFO - Data loaded from Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv:
+[2024-09-01T00:01:56.632+0000] {logging_mixin.py:188} INFO -    RegionID  SizeRank       RegionName  ... 2024-05-31 2024-06-30  2024-07-31
+0    102001         0    United States  ...       39.0       37.0        38.0
+1    394913         1     New York, NY  ...       51.0       49.0        49.0
+2    753899         2  Los Angeles, CA  ...       30.0       29.0        30.0
+3    394463         3      Chicago, IL  ...       26.0       24.0        24.0
+4    394514         4       Dallas, TX  ...       39.0       38.0        40.0
+
+[5 rows x 82 columns]
+[2024-09-01T00:01:56.666+0000] {logging_mixin.py:188} INFO - Transformed data from Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv:
+[2024-09-01T00:01:56.678+0000] {logging_mixin.py:188} INFO -    regionid  sizerank  ...       date mean_days_to_pending
+0    394913         1  ... 2018-03-31                 68.0
+1    753899         2  ... 2018-03-31                 35.0
+2    394463         3  ... 2018-03-31                 51.0
+3    394514         4  ... 2018-03-31                 46.0
+4    394692         5  ... 2018-03-31                 49.0
+
+[5 rows x 7 columns]
+[2024-09-01T00:01:56.911+0000] {logging_mixin.py:188} INFO - CSV content for Metro_mean_doz_pending_uc_sfrcondo_sm_month.csv (first 500 characters):
+[2024-09-01T00:01:56.912+0000] {logging_mixin.py:188} INFO - regionid,sizerank,regionname,regiontype,statename,date,mean_days_to_pending
+394913,1,"New York, NY",msa,NY,2018-03-31,68.0
+753899,2,"Los Angeles, CA",msa,CA,2018-03-31,35.0
+394463,3,"Chicago, IL",msa,IL,2018-03-31,51.0
+394514,4,"Dallas, TX",msa,TX,2018-03-31,46.0
+394692,5,"Houston, TX",msa,TX,2018-03-31,49.0
+395209,6,"Washington, DC",msa,VA,2018-03-31,53.0
+394974,7,"Philadelphia, PA",msa,PA,2018-03-31,60.0
+394856,8,"Miami, FL",msa,FL,2018-03-31,59.0
+394347,9,"Atlanta, GA",msa,GA,2018-03-31,40.0
